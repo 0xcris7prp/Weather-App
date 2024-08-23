@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poiret+One">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="widget">
+        <div class="weatherLocation">
+            <form action="/weather" method="get">
+                <input type="text" name="city" placeholder="Enter city name" class="input-field" required>
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        <div class="icon-and-weatherInfo">
+            <div class="weatherIcon">
+                <i class="wi wi-day-cloudy"></i>
+            </div>
+            <div>
+                <div class="temperature"><%= weather ? `${weather.temperature}°C` : '--' %></div>
+                <div class="weatherCondition"><%= weather ? weather.description : 'N/A' %></div>
+            </div>
+        </div>
+        <div class="place"><%= weather ? weather.city : 'Enter a city' %></div>
+        <div class="date"><%= new Date().toLocaleDateString() %></div>
+    </div>
+</body>
+</html>
